@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Prediction</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        input, select { margin: 5px 0; padding: 5px; width: 200px; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Loan Prediction Form</h1>
+    <form method="POST">
+        <label>Income per annum:</label><br>
+        <input type="number" name="income_annum" step="0.01" required><br>
+
+        <label>Loan Amount:</label><br>
+        <input type="number" name="loan_amount" step="0.01" required><br>
+
+        <label>Loan Term (months):</label><br>
+        <input type="number" name="loan_term" step="1" required><br>
+
+        <label>CIBIL Score:</label><br>
+        <input type="number" name="cibil_score" step="1" required><br>
+
+        <label>No. of Dependents:</label><br>
+        <input type="number" name="no_of_dependents" step="1" required><br>
+
+        <label>Self Employed:</label><br>
+        <select name="self_employed" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <label>Education:</label><br>
+        <select name="education" required>
+            <option value="1">Graduate</option>
+            <option value="0">Not Graduate</option>
+        </select><br><br>
+
+        <button type="submit">Predict Loan Status</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
